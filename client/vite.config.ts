@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
+  base: './', // 👈 ensures relative paths for CSS/JS
   plugins: [react()],
   resolve: {
     alias: {
@@ -16,5 +17,5 @@ export default defineConfig({
     outDir: "dist",
     emptyOutDir: true,
   },
-}); 
+});
 
