@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --electric-blue: 195 100% 50%;
+    --neon-green: 142 100% 50%;
+    --gradient-purple-start: 270 100% 50%;
+    --gradient-purple-end: 300 100% 70%;
+  }
+
+  *, *::before, *::after {
+    /* @apply border-border; */
+    box-sizing: border-box;
+  }
+
+  html, body {
+    @apply overflow-x-hidden scroll-smooth;
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden !important;
+    height: 100%;
+  }
+
+  body {
+    @apply font-inter antialiased bg-white text-gray-900;
+    overflow-y: auto;
+
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-bold;
+  }
+}
+
+@layer utilities {
+  .my-custom-font {
+    @apply font-inter;
+  }
+}
+
+@layer components {
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-blue-400;
+  }
+
+  .text-gradient-neon {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-400;
+  }
+
+  /* Section Padding */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  @media (max-width: 640px) {
+    .container-custom {
+      @apply px-2;
+      max-width: 100% !important;
+    }
+  }
+
+  /* Card Hover */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .shadow-glow {
+    @apply shadow-[0_0_15px_rgba(56,189,248,0.3)];
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium py-2 px-6 rounded-md transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-blue-500/20;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border border-primary text-primary hover:bg-primary/10 font-medium py-2 px-6 rounded-md transition-all duration-300;
+  }
+
+  /* Navigation Links */
+  .nav-link {
+    @apply text-gray-200 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300;
+  }
+
+  .nav-link-active {
+    @apply text-primary after:w-full;
+  }
+
+  /* Service Icon Hover */
+  .service-card:hover .service-icon {
+    @apply scale-105; /* Reduced scale to avoid overflow */
+    transform-origin: center;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-200;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-br from-blue-500 to-purple-500 rounded-full hover:from-blue-600 hover:to-purple-600 transition-colors duration-200;
+  }
+
+  /* Animations */
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .animate-blink {
+    animation: blink 1s infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-gradient-text {
+    animation: gradient-shift 3s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  @keyframes gradient-border {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .animate-gradient-border {
+    animation: gradient-border 6s ease infinite;
+    background-size: 300% 100%;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  @keyframes scroll-down {
+    0% { transform: translateY(0); opacity: 0; }
+    30%, 60% { opacity: 1; }
+    100% { transform: translateY(6px); opacity: 0; }
+  }
+
+  .animate-scroll-down {
+    animation: scroll-down 1.5s ease-in-out infinite;
+  }
+
+  /* Pattern Backgrounds */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' /%3E%3C/svg%3E");
+  }
+
+  .tech-icons-animation {
+    position: relative;
+    overflow: hidden; /* Prevent background icon overflow */
+    background-repeat: no-repeat;
+    background-position: 
+      calc(10% + 10px) calc(20% + 20px),
+      calc(30% + 30px) calc(70% + 20px),
+      calc(80% + 10px) calc(10% + 10px),
+      calc(50% + 30px) calc(50% + 10px);
+    animation: floating-icons 15s linear infinite;
+  }
+
+  @keyframes floating-icons {
+    0% {
+      background-position: 
+        calc(10% + 10px) calc(20% + 20px),
+        calc(30% + 30px) calc(70% + 20px),
+        calc(80% + 10px) calc(10% + 10px),
+        calc(50% + 30px) calc(50% + 10px);
+    }
+    50% {
+      background-position: 
+        calc(20% + 10px) calc(30% + 20px),
+        calc(40% + 30px) calc(60% + 20px),
+        calc(70% + 10px) calc(20% + 10px),
+        calc(60% + 30px) calc(40% + 10px);
+    }
+    100% {
+      background-position: 
+        calc(10% + 10px) calc(20% + 20px),
+        calc(30% + 30px) calc(70% + 20px),
+        calc(80% + 10px) calc(10% + 10px),
+        calc(50% + 30px) calc(50% + 10px);
+    }
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+}
+
+@media (max-width: 767px) {
+  ::-webkit-scrollbar {
+    width: 0.2em;
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+}
