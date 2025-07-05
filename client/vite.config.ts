@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
+  base: "/", // 👈 this ensures correct asset resolution
   plugins: [react()],
   resolve: {
     alias: {
@@ -16,5 +17,6 @@ export default defineConfig({
     outDir: "dist",
     emptyOutDir: true,
   },
-}); 
+});
+
 
