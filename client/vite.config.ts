@@ -21,6 +21,7 @@ export default defineConfig({
         'zod',
         'react-hook-form',
         '@hookform/resolvers',
+        '@hookform/resolvers/zod',
         '@radix-ui/react-toast',
         '@radix-ui/react-accordion',
         '@radix-ui/react-alert-dialog',
