@@ -37,27 +37,26 @@ export default function PortfolioHeader() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      
-      // Find active section based on scroll position
       const sections = navItems.map(item => item.href.replace('#', ''));
       let currentActive = 'home';
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Check if the top of the section is just below the header
-          if (rect.top <= 150) { // Adjust 150px based on header height and desired offset
+          if (rect.top <= 150) {
             currentActive = section;
           }
         }
       }
       setActiveSection(currentActive);
     };
-
     window.addEventListener('scroll', handleScroll);
-    
+    window.addEventListener('resize', handleScroll);
+    // Call once to set initial state
+    handleScroll();
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
     };
   }, []);
 
