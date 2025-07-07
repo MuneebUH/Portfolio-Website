@@ -22,6 +22,8 @@ export default {
     'bg-white', 'bg-white/90', 'bg-white/95',
     'hover:bg-blue-100', 'hover:border-blue-400', 'hover:bg-gray-50', 'hover:bg-gray-200', 'hover:border-primary', 'hover:bg-primary/10',
     'text-blue-700', 'text-green-700', 'text-yellow-700', 'text-orange-700', 'text-red-700', 'text-pink-700', 'text-indigo-700', 'text-purple-700', 'text-gray-700', 'text-gray-800',
+    'bg-primary/10', 'text-primary', 'hover:bg-blue-100', 'hover:border-blue-400',
+    'border', 'font-semibold', 'rounded-full', 'text-xs', 'px-3', 'py-1',
   ],
   theme: {
     extend: {
