@@ -10,6 +10,18 @@ export default {
     'rounded', 'rounded-sm', 'rounded-md', 'rounded-lg', 'rounded-xl', 'rounded-full',
     'after:absolute', 'after:bottom-0', 'after:left-0', 'after:h-0.5', 'after:w-0', 'after:bg-primary', 'hover:after:w-full', 'after:transition-all', 'after:duration-300', 'after:w-full',
     'text-primary', 'font-semibold',
+    'bg-blue-100', 'border-blue-200', 'border-blue-300', 'border-blue-400',
+    'bg-green-100', 'border-green-200', 'border-green-300',
+    'bg-yellow-100', 'border-yellow-200',
+    'bg-orange-100', 'border-orange-200',
+    'bg-red-100', 'border-red-200',
+    'bg-pink-100', 'border-pink-200',
+    'bg-indigo-100', 'border-indigo-200',
+    'bg-purple-100', 'border-purple-200',
+    'bg-gray-100', 'border-gray-100', 'border-gray-200', 'border-gray-300',
+    'bg-white', 'bg-white/90', 'bg-white/95',
+    'hover:bg-blue-100', 'hover:border-blue-400', 'hover:bg-gray-50', 'hover:bg-gray-200', 'hover:border-primary', 'hover:bg-primary/10',
+    'text-blue-700', 'text-green-700', 'text-yellow-700', 'text-orange-700', 'text-red-700', 'text-pink-700', 'text-indigo-700', 'text-purple-700', 'text-gray-700', 'text-gray-800',
   ],
   theme: {
     extend: {
