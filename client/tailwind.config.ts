@@ -1,10 +1,10 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
   darkMode: ["class"],
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./client/**/*.{js,ts,jsx,tsx}", // covers src and other folders
   ],
   safelist: [
     'rounded', 'rounded-sm', 'rounded-md', 'rounded-lg', 'rounded-xl', 'rounded-full',
@@ -126,4 +126,6 @@ export default {
     require("tailwindcss-animate"),
     require("@tailwindcss/typography"),
   ],
-} satisfies Config;
+};
+
+export default config;
