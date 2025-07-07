@@ -11,6 +11,7 @@
     --neon-green: 142 100% 50%;
     --gradient-purple-start: 270 100% 50%;
     --gradient-purple-end: 300 100% 70%;
+    --radius: 0.5rem;
   }
 
   *, *::before, *::after {
