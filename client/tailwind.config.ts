@@ -24,6 +24,11 @@ export default {
     'text-blue-700', 'text-green-700', 'text-yellow-700', 'text-orange-700', 'text-red-700', 'text-pink-700', 'text-indigo-700', 'text-purple-700', 'text-gray-700', 'text-gray-800',
     'bg-primary/10', 'text-primary', 'hover:bg-blue-100', 'hover:border-blue-400',
     'border', 'font-semibold', 'rounded-full', 'text-xs', 'px-3', 'py-1',
+    { pattern: /bg-(blue|green|yellow|orange|red|pink|indigo|purple|gray|white)(-100|\/10|\/90|\/95)?/ },
+    { pattern: /border-(blue|green|yellow|orange|red|pink|indigo|purple|gray)-(100|200|300|400)/ },
+    { pattern: /text-(primary|blue-700|green-700|yellow-700|orange-700|red-700|pink-700|indigo-700|purple-700|gray-700|gray-800)/ },
+    { pattern: /hover:bg-(blue-100|gray-50|gray-200|primary\/10)/ },
+    { pattern: /hover:border-(blue-400|primary)/ },
   ],
   theme: {
     extend: {
