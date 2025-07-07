@@ -4,13 +4,16 @@ export default {
   darkMode: ["class"],
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  safelist: [
+    'rounded', 'rounded-sm', 'rounded-md', 'rounded-lg', 'rounded-xl', 'rounded-full',
   ],
   theme: {
     extend: {
       fontFamily: {
-        'inter': ['Inter', 'sans-serif'],
-        'poppins': ['Poppins', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -71,20 +74,12 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
         blink: {
           "0%, 100%": { opacity: "1" },
@@ -105,11 +100,11 @@ export default {
           "50%": { backgroundPosition: "100% 50%" },
         },
         "pulse-glow": {
-          "0%, 100%": { 
+          "0%, 100%": {
             opacity: "0.7",
             transform: "scale(1)"
           },
-          "50%": { 
+          "50%": {
             opacity: "0.9",
             transform: "scale(1.05)"
           },
@@ -118,8 +113,8 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "blink": "blink 1s infinite",
-        "float": "float 5s ease-in-out infinite",
+        blink: "blink 1s infinite",
+        float: "float 5s ease-in-out infinite",
         "scroll-down": "scroll-down 1.5s ease-in-out infinite",
         "gradient-x": "gradient-x 3s ease infinite",
         "pulse-glow": "pulse-glow 4s ease-in-out infinite",
@@ -127,5 +122,8 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+  ],
 } satisfies Config;
