@@ -8,6 +8,8 @@ export default {
   ],
   safelist: [
     'rounded', 'rounded-sm', 'rounded-md', 'rounded-lg', 'rounded-xl', 'rounded-full',
+    'after:absolute', 'after:bottom-0', 'after:left-0', 'after:h-0.5', 'after:w-0', 'after:bg-primary', 'hover:after:w-full', 'after:transition-all', 'after:duration-300', 'after:w-full',
+    'text-primary', 'font-semibold',
   ],
   theme: {
     extend: {
