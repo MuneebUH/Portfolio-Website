@@ -92,7 +92,23 @@
 
   /* Navigation Links */
   .nav-link {
-    @apply text-gray-200 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300;
+    position: relative;
+    color: #374151; /* text-gray-700 */
+    transition: color 0.3s;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: #6366f1; /* primary color */
+    transition: width 0.3s;
+  }
+  .nav-link:hover::after,
+  .nav-link-active::after {
+    width: 100%;
   }
 
   .nav-link-active {
