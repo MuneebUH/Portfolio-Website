@@ -29,7 +29,7 @@ export default function HeroSection() {
   };
   
   const handleDownloadCV = () => {
-    const cvUrl = "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/05/Muneeb-Ul-Hassan-Machine-Learning.pdf";
+    const cvUrl = "https://drive.google.com/drive/folders/1iXKAnwuX57l4ofl2vN8w3UCcU0bdnNsx";
     window.open(cvUrl, '_blank');
   };
   
