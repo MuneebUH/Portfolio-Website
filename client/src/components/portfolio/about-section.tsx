@@ -24,6 +24,19 @@ const skillTags: SkillTagProps[] = [
   { name: 'NumPy', color: 'bg-green-100 text-green-700 border border-green-200' },
   { name: 'Cloud Platforms (AWS/GCP)', color: 'bg-gray-100 text-gray-700 border border-gray-200' },
   { name: 'Data Visualization', color: 'bg-purple-100 text-purple-700 border border-purple-200' },
+  { name: 'RAG', color: 'bg-purple-100 text-purple-700 border border-purple-200' },
+  { name: 'Agentic AI', color: 'bg-indigo-100 text-indigo-700 border border-indigo-200' },
+  { name: 'LLMs Fine-tuning', color: 'bg-blue-100 text-blue-700 border border-blue-200' },
+  { name: 'API Integration', color: 'bg-green-100 text-green-700 border border-green-200' },
+  { name: 'RESTful API', color: 'bg-yellow-100 text-yellow-700 border border-yellow-200' },
+  { name: 'Javascript', color: 'bg-yellow-100 text-yellow-700 border border-yellow-200' },
+  { name: 'Tailwind CSS', color: 'bg-teal-100 text-teal-700 border border-teal-200' },
+  { name: 'Bootstrap', color: 'bg-purple-100 text-purple-700 border border-purple-200' },
+  { name: 'Typescript', color: 'bg-blue-100 text-blue-700 border border-blue-200' },
+  { name: 'React', color: 'bg-cyan-100 text-cyan-700 border border-cyan-200' },
+  { name: 'MongoDB', color: 'bg-green-100 text-green-700 border border-green-200' },
+  { name: 'Express.js', color: 'bg-gray-100 text-gray-700 border border-gray-200' },
+  { name: 'Node.js', color: 'bg-lime-100 text-lime-700 border border-lime-200' },
 ];
 
 export default function AboutSection() {

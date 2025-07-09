@@ -84,7 +84,7 @@ const services: ServiceProps[] = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="section-padding bg-white">
+    <section id="services" className="bg-white py-20 min-h-screen">
       <div className="container-custom">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">

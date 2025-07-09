@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useRef } from 'react';
 
 interface NavItem {
   label: string;
@@ -11,7 +12,7 @@ const navItems: NavItem[] = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
-  { label: 'Process', href: '#process' },
+  { label: 'Builds', href: '#process' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
   { label: 'CV', href: '#cv' },
@@ -35,28 +36,94 @@ export default function PortfolioHeader() {
 
   // Scroll event to change header background
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-      const sections = navItems.map(item => item.href.replace('#', ''));
-      let currentActive = 'home';
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            currentActive = section;
+    const sectionIds = navItems.map(item => item.href.replace('#', ''));
+    let observer: IntersectionObserver | null = null;
+
+    const tryObserve = () => {
+      const sectionElements = sectionIds
+        .map(id => document.getElementById(id))
+        .filter(Boolean) as HTMLElement[];
+
+      if (sectionElements.length !== sectionIds.length) {
+        setTimeout(tryObserve, 200);
+        return;
+      }
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          // Debug: log all entries
+          entries.forEach(entry => {
+            if (entry.isIntersecting && entry.target instanceof HTMLElement) {
+              console.log('Intersected section:', entry.target.id, 'ratio:', entry.intersectionRatio);
+            }
+          });
+          // Find all intersecting sections
+          const visibleSections = entries
+            .filter(entry => entry.isIntersecting)
+            .map(entry => ({
+              id: (entry.target as HTMLElement).id,
+              top: entry.boundingClientRect.top,
+            }));
+
+          if (visibleSections.length > 0) {
+            // Pick the section closest to the top (but still visible)
+            const nearest = visibleSections.reduce((a, b) =>
+              a.top < b.top ? a : b
+            );
+            setActiveSection(nearest.id);
           }
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '0px 0px -10% 0px',
+        }
+      );
+
+      sectionElements.forEach(el => observer!.observe(el));
+    };
+
+    tryObserve();
+
+    // Fallback: scroll event to detect if user is at the bottom or top
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const fullHeight = document.body.offsetHeight;
+
+      // If near the bottom, set last section as active
+      if (scrollY + windowHeight >= fullHeight - 10) {
+        const lastId = sectionIds[sectionIds.length - 1];
+        setActiveSection(lastId);
+        console.log('Scroll fallback: set active section to', lastId);
+        return;
+      }
+
+      // If at the very top, set first section as active
+      if (scrollY === 0) {
+        setActiveSection(sectionIds[0]);
+        console.log('Scroll fallback: set active section to', sectionIds[0]);
+        return;
+      }
+
+      // Explicitly check if CV section is in view
+      const cvSection = document.getElementById('cv');
+      if (cvSection) {
+        const rect = cvSection.getBoundingClientRect();
+        if (
+          rect.top < window.innerHeight &&
+          rect.bottom > 0
+        ) {
+          setActiveSection('cv');
+          console.log('Scroll fallback: cv section is in view');
         }
       }
-      setActiveSection(currentActive);
     };
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
-    // Call once to set initial state
-    handleScroll();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     return () => {
+      if (observer) observer.disconnect();
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
     };
   }, []);
 

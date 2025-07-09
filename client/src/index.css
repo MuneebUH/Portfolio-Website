@@ -29,7 +29,7 @@
   }
 
   body {
-    @apply font-inter antialiased bg-white text-gray-900;
+    @apply font-sans antialiased bg-white text-gray-900;
     overflow-y: auto;
 
   }
@@ -41,7 +41,7 @@
 
 @layer utilities {
   .my-custom-font {
-    @apply font-inter;
+    @apply font-sans;
   }
 }
 

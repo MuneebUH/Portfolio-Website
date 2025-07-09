@@ -169,7 +169,7 @@ export default function HeroSection() {
                 { name: "Data Science", icon: <Zap className="w-4 h-4" /> },
                 { name: "AI Development", icon: <Star className="w-4 h-4" /> },
                 { name: "Deep Learning", icon: <MousePointer className="w-4 h-4" /> },
-                { name: "Model Training", icon: <Award className="w-4 h-4" /> }
+                { name: "MERN-Stack Development", icon: <Award className="w-4 h-4" /> }
               ].map((item, index) => (
                 <div 
                   key={index} 

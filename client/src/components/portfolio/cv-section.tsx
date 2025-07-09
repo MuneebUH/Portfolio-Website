@@ -75,7 +75,7 @@ export default function CVSection() {
   };
 
   return (
-    <section id="cv" className="section-padding bg-white">
+    <section id="cv" className="bg-white py-20 min-h-screen">
       <div className="container px-4 mx-auto">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
