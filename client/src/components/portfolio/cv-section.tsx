@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Download, Award, Briefcase, Book, Code, Clock } from "lucide-react";
 import { generateCV } from "@/lib/cvGenerator";
+import { trackCVInteraction, detectSource } from "@/lib/cvTracker";
+import CVStatsWidget from "./cv-stats-widget";
 
 interface Education {
   degree: string;
@@ -19,6 +21,33 @@ interface Experience {
 }
 
 export default function CVSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const hasTrackedView = useRef(false);
+
+  // Track when CV section comes into view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasTrackedView.current) {
+            hasTrackedView.current = true;
+            trackCVInteraction({
+              action: 'view',
+              source: detectSource()
+            });
+          }
+        });
+      },
+      { threshold: 0.5 } // Trigger when 50% of section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const experience: Experience[] = [
     {
       position: "Machine Learning Engineer",
@@ -69,13 +98,20 @@ export default function CVSection() {
     { name: "Data Visualization", level: 85 }
   ];
 
-  const handleDownloadCV = () => {
+  const handleDownloadCV = async () => {
+    // Track the download interaction
+    await trackCVInteraction({
+      action: 'download',
+      source: detectSource()
+    });
+
+    // Open the CV link
     const cvUrl = "https://drive.google.com/drive/folders/1iXKAnwuX57l4ofl2vN8w3UCcU0bdnNsx";
     window.open(cvUrl, '_blank');
   };
 
   return (
-    <section id="cv" className="bg-white py-20 min-h-screen">
+    <section ref={sectionRef} id="cv" className="bg-white py-20 min-h-screen">
       <div className="container px-4 mx-auto">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
@@ -190,6 +226,11 @@ export default function CVSection() {
             >
               <Download className="w-5 h-5 mr-2" /> Download Full CV
             </Button>
+            
+            {/* CV Stats Widget */}
+            <div className="mt-8 max-w-sm mx-auto">
+              <CVStatsWidget />
+            </div>
           </div>
         </div>
       </div>
