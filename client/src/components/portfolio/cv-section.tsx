@@ -227,11 +227,7 @@ export default function CVSection() {
             >
               <Download className="w-5 h-5 mr-2" /> Download Full CV
             </Button>
-            
-            {/* CV Stats Widget */}
-            <div className="mt-8 max-w-sm mx-auto">
-              <CVStatsWidget />
-            </div>
+            {/* CV Stats Widget removed as requested */}
           </div>
         </div>
       </div>
