@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  base: './', // 👈 ensures relative paths for CSS/JS
+  base: '/', // 👈 Use absolute paths for Netlify
   plugins: [react()],
   resolve: {
     alias: {
