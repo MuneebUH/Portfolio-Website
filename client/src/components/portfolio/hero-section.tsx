@@ -29,6 +29,14 @@ export default function HeroSection() {
   };
   
   const handleDownloadCV = () => {
+    // @ts-ignore
+    if (window.gtag) {
+      // @ts-ignore
+      window.gtag('event', 'download_cv', {
+        event_category: 'CV',
+        event_label: 'Hero Section',
+      });
+    }
     const cvUrl = "https://drive.google.com/drive/folders/1iXKAnwuX57l4ofl2vN8w3UCcU0bdnNsx";
     window.open(cvUrl, '_blank');
   };

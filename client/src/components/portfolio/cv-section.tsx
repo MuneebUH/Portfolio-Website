@@ -96,7 +96,15 @@ export default function CVSection() {
   ];
 
   const handleDownloadCV = () => {
-    // No custom tracking, Google Analytics will be used
+    // Declare gtag type for TypeScript
+    // @ts-ignore
+    if (window.gtag) {
+      // @ts-ignore
+      window.gtag('event', 'download_cv', {
+        event_category: 'CV',
+        event_label: 'CV Section',
+      });
+    }
     const cvUrl = "https://drive.google.com/drive/folders/1iXKAnwuX57l4ofl2vN8w3UCcU0bdnNsx";
     window.open(cvUrl, '_blank');
   };
