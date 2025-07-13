@@ -1,32 +1,70 @@
 import { 
   users, type User, type InsertUser,
-  waitlist, type Waitlist, type InsertWaitlist,
-  cvInteractions, type CVInteraction, type InsertCVInteraction
+  waitlist, type Waitlist, type InsertWaitlist
 } from "@shared/schema";
-import { db } from './db';
 
 export interface IStorage {
-  addCVInteraction(interaction: InsertCVInteraction): Promise<CVInteraction>;
-  getCVInteractions(): Promise<CVInteraction[]>;
-  getCVStats(): Promise<{ views: number; downloads: number; total: number }>;
+  getUser(id: number): Promise<User | undefined>;
+  getUserByUsername(username: string): Promise<User | undefined>;
+  createUser(user: InsertUser): Promise<User>;
+  
+  addToWaitlist(entry: InsertWaitlist): Promise<Waitlist>;
+  getWaitlistByEmail(email: string): Promise<Waitlist | undefined>;
+  getAllWaitlist(): Promise<Waitlist[]>;
 }
 
-export class PgStorage implements IStorage {
-  async addCVInteraction(interaction: InsertCVInteraction): Promise<CVInteraction> {
-    const [result] = await db.insert(cvInteractions).values(interaction).returning();
-    return result;
+export class MemStorage implements IStorage {
+  private users: Map<number, User>;
+  private waitlistEntries: Map<number, Waitlist>;
+  
+  currentUserId: number;
+  currentWaitlistId: number;
+
+  constructor() {
+    this.users = new Map();
+    this.waitlistEntries = new Map();
+    this.currentUserId = 1;
+    this.currentWaitlistId = 1;
   }
 
-  async getCVInteractions(): Promise<CVInteraction[]> {
-    return db.select().from(cvInteractions);
+  async getUser(id: number): Promise<User | undefined> {
+    return this.users.get(id);
   }
 
-  async getCVStats(): Promise<{ views: number; downloads: number; total: number }> {
-    const all = await db.select().from(cvInteractions);
-    const views = all.filter(i => i.action === 'view').length;
-    const downloads = all.filter(i => i.action === 'download').length;
-    return { views, downloads, total: all.length };
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    return Array.from(this.users.values()).find(
+      (user) => user.username === username,
+    );
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const id = this.currentUserId++;
+    const user: User = { ...insertUser, id };
+    this.users.set(id, user);
+    return user;
+  }
+
+  async addToWaitlist(entry: InsertWaitlist): Promise<Waitlist> {
+    const id = this.currentWaitlistId++;
+    const waitlistEntry: Waitlist = { 
+      ...entry, 
+      interests: entry.interests || null,
+      id,
+      createdAt: new Date()
+    };
+    this.waitlistEntries.set(id, waitlistEntry);
+    return waitlistEntry;
+  }
+
+  async getWaitlistByEmail(email: string): Promise<Waitlist | undefined> {
+    return Array.from(this.waitlistEntries.values()).find(
+      (entry) => entry.email === email,
+    );
+  }
+
+  async getAllWaitlist(): Promise<Waitlist[]> {
+    return Array.from(this.waitlistEntries.values());
   }
 }
 
-export const storage = new PgStorage();
+export const storage = new MemStorage();

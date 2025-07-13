@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Download, Award, Briefcase, Book, Code, Clock } from "lucide-react";
-import { generateCV } from "@/lib/cvGenerator";
-import { trackCVInteraction, detectSource } from "@/lib/cvTracker";
-import CVStatsWidget from "./cv-stats-widget";
+// import { generateCV } from "@/lib/cvGenerator";
+// Removed: import { trackCVInteraction, detectSource } from "@/lib/cvTracker";
+// Removed: import CVStatsWidget from "./cv-stats-widget";
 
 interface Education {
   degree: string;
@@ -31,15 +31,11 @@ export default function CVSection() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasTrackedView.current) {
             hasTrackedView.current = true;
-            // Track view (commented out until backend is deployed)
-            // trackCVInteraction({
-            //   action: 'view',
-            //   source: detectSource()
-            // });
+            // No custom tracking, Google Analytics will be used
           }
         });
       },
-      { threshold: 0.5 } // Trigger when 50% of section is visible
+      { threshold: 0.5 }
     );
 
     if (sectionRef.current) {
@@ -99,14 +95,8 @@ export default function CVSection() {
     { name: "Data Visualization", level: 85 }
   ];
 
-  const handleDownloadCV = async () => {
-    // Track the download interaction (commented out until backend is deployed)
-    // await trackCVInteraction({
-    //   action: 'download',
-    //   source: detectSource()
-    // });
-
-    // Open the CV link
+  const handleDownloadCV = () => {
+    // No custom tracking, Google Analytics will be used
     const cvUrl = "https://drive.google.com/drive/folders/1iXKAnwuX57l4ofl2vN8w3UCcU0bdnNsx";
     window.open(cvUrl, '_blank');
   };

@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Portfolio from "@/pages/portfolio";
-import CVDashboard from "@/components/admin/cv-dashboard";
 
 function Router() {
   return (
@@ -19,7 +18,6 @@ function Router() {
       <Route path="/skills" component={Portfolio} />
       <Route path="/projects" component={Portfolio} />
       <Route path="/contact" component={Portfolio} />
-      <Route path="/admin/cv-analytics" component={CVDashboard} />
       <Route component={NotFound} />
     </Switch>
   );
