@@ -31,10 +31,11 @@ export default function CVSection() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasTrackedView.current) {
             hasTrackedView.current = true;
-            trackCVInteraction({
-              action: 'view',
-              source: detectSource()
-            });
+            // Track view (commented out until backend is deployed)
+            // trackCVInteraction({
+            //   action: 'view',
+            //   source: detectSource()
+            // });
           }
         });
       },
@@ -99,11 +100,11 @@ export default function CVSection() {
   ];
 
   const handleDownloadCV = async () => {
-    // Track the download interaction
-    await trackCVInteraction({
-      action: 'download',
-      source: detectSource()
-    });
+    // Track the download interaction (commented out until backend is deployed)
+    // await trackCVInteraction({
+    //   action: 'download',
+    //   source: detectSource()
+    // });
 
     // Open the CV link
     const cvUrl = "https://drive.google.com/drive/folders/1iXKAnwuX57l4ofl2vN8w3UCcU0bdnNsx";

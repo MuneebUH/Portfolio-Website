@@ -15,12 +15,17 @@ export default function CVStatsWidget() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await getCVStats();
-        if (response?.success) {
-          setStats(response.data);
-        }
+        // Commented out until backend is deployed
+        // const response = await getCVStats();
+        // if (response?.success) {
+        //   setStats(response.data);
+        // }
+        
+        // Show placeholder data for now
+        setStats({ views: 0, downloads: 0, total: 0 });
       } catch (error) {
         console.error('Error fetching CV stats:', error);
+        setStats({ views: 0, downloads: 0, total: 0 });
       } finally {
         setLoading(false);
       }
