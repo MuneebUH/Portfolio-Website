@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "prebuild": "cp ../client/Muneeb-Ul-Hassan-CV.pdf ./public/Muneeb-Ul-Hassan-CV.pdf",
     "build": "vite build",
     "preview": "vite preview"
   },
