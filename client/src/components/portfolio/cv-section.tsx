@@ -106,7 +106,12 @@ export default function CVSection() {
         event_label: 'CV Section - direct',
       });
     }
-    window.open('/Muneeb-Ul-Hassan-CV.pdf', '_blank');
+    const link = document.createElement('a');
+    link.href = '/Muneeb%20Ul%20Hassan_%20ML.pdf';
+    link.download = 'Muneeb_Ul_Hassan_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
