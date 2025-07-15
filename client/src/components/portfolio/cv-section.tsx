@@ -4,6 +4,7 @@ import { Download, Award, Briefcase, Book, Code, Clock } from "lucide-react";
 // import { generateCV } from "@/lib/cvGenerator";
 // Removed: import { trackCVInteraction, detectSource } from "@/lib/cvTracker";
 // Removed: import CVStatsWidget from "./cv-stats-widget";
+import { trackCVDownload } from "@/lib/utmTracker";
 
 interface Education {
   degree: string;
@@ -96,17 +97,7 @@ export default function CVSection() {
   ];
 
   const handleDownloadCV = () => {
-    // Declare gtag type for TypeScript
-    // @ts-ignore
-    if (window.gtag) {
-      // @ts-ignore
-      window.gtag('event', 'download_cv', {
-        event_category: 'CV',
-        event_label: 'CV Section',
-      });
-    }
-    const cvUrl = "https://drive.google.com/drive/folders/1iXKAnwuX57l4ofl2vN8w3UCcU0bdnNsx";
-    window.open(cvUrl, '_blank');
+    trackCVDownload('CV Section');
   };
 
   return (

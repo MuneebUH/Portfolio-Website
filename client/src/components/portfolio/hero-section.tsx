@@ -2,6 +2,7 @@ import { ArrowRightIcon, ArrowDownIcon, CheckCircle, Github, Linkedin, Twitter, 
 import { Button } from '@/components/ui/button';
 import { generateCV } from '@/lib/cvGenerator';
 import { useState, useEffect } from 'react';
+import { trackCVDownload } from '@/lib/utmTracker';
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,16 +30,7 @@ export default function HeroSection() {
   };
   
   const handleDownloadCV = () => {
-    // @ts-ignore
-    if (window.gtag) {
-      // @ts-ignore
-      window.gtag('event', 'download_cv', {
-        event_category: 'CV',
-        event_label: 'Hero Section',
-      });
-    }
-    const cvUrl = "https://drive.google.com/drive/folders/1iXKAnwuX57l4ofl2vN8w3UCcU0bdnNsx";
-    window.open(cvUrl, '_blank');
+    trackCVDownload('Hero Section');
   };
   
   // Typewriter effect

@@ -1,6 +1,7 @@
 import { Briefcase, Calendar, Award, Code, Globe, Zap, ArrowRight, Download, Users, Settings, Rocket, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { generateCV } from '@/lib/cvGenerator';
+import { trackCVDownload } from '@/lib/utmTracker';
 
 interface MilestoneProps {
   year: string;
@@ -48,16 +49,7 @@ export default function AboutSection() {
   };
 
   const handleDownloadCV = () => {
-    // @ts-ignore
-    if (window.gtag) {
-      // @ts-ignore
-      window.gtag('event', 'download_cv', {
-        event_category: 'CV',
-        event_label: 'About Section',
-      });
-    }
-    const cvUrl = "https://drive.google.com/drive/folders/1iXKAnwuX57l4ofl2vN8w3UCcU0bdnNsx";
-    window.open(cvUrl, '_blank');
+    trackCVDownload('About Section');
   };
 
   return (
