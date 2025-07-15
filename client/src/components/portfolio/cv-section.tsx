@@ -97,7 +97,16 @@ export default function CVSection() {
   ];
 
   const handleDownloadCV = () => {
-    trackCVDownload('CV Section');
+    // Google Analytics event
+    // @ts-ignore
+    if (window.gtag) {
+      // @ts-ignore
+      window.gtag('event', 'download_cv', {
+        event_category: 'CV',
+        event_label: 'CV Section - direct',
+      });
+    }
+    window.open('/Muneeb-Ul-Hassan-CV.pdf', '_blank');
   };
 
   return (

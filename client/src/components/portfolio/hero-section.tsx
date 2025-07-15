@@ -30,7 +30,16 @@ export default function HeroSection() {
   };
   
   const handleDownloadCV = () => {
-    trackCVDownload('Hero Section');
+    // Google Analytics event
+    // @ts-ignore
+    if (window.gtag) {
+      // @ts-ignore
+      window.gtag('event', 'download_cv', {
+        event_category: 'CV',
+        event_label: 'Hero Section - direct',
+      });
+    }
+    window.open('/Muneeb-Ul-Hassan-CV.pdf', '_blank');
   };
   
   // Typewriter effect
