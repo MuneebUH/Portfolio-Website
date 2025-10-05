@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Download, Award, Briefcase, Book, Code, Clock } from "lucide-react";
-// import { generateCV } from "@/lib/cvGenerator";
-// Removed: import { trackCVInteraction, detectSource } from "@/lib/cvTracker";
-// Removed: import CVStatsWidget from "./cv-stats-widget";
 import { trackCVDownload } from "@/lib/utmTracker";
 
 interface Education {
@@ -32,7 +29,7 @@ export default function CVSection() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasTrackedView.current) {
             hasTrackedView.current = true;
-            // No custom tracking, Google Analytics will be used
+            // No custom tracking here; GA can be configured globally if needed
           }
         });
       },
@@ -97,21 +94,7 @@ export default function CVSection() {
   ];
 
   const handleDownloadCV = () => {
-    // Google Analytics event
-    // @ts-ignore
-    if (window.gtag) {
-      // @ts-ignore
-      window.gtag('event', 'download_cv', {
-        event_category: 'CV',
-        event_label: 'CV Section - direct',
-      });
-    }
-    const link = document.createElement('a');
-    link.href = '/Muneeb%20Ul%20Hassan_%20ML.pdf';
-    link.download = 'Muneeb_Ul_Hassan_CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    trackCVDownload('CV Section');
   };
 
   return (

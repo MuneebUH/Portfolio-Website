@@ -5,17 +5,17 @@ import { Button } from "@/components/ui/button";
 export default function HighlightsSection() {
   // Images for the carousel
   const images = [
-    "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/Muneeb-Ul-Hassan.jpg",
-    "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/Machine-Learning-Specialization_page-0001-2048x1583.jpg",
-    "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/Deep-Learning-Specialization_Muneeb-Ul-Hassan-2048x1583.jpg",
-    "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/Reinforcement-Learning-Specialization-2048x1583.jpg",
-    "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/Arduino-Workshop-IEEE-UET.png",
-    "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/Encoder-Decoder-2048x1447.jpg",
-    "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/Custom-Prompts-for-ChatGPT-DALL%C2%B7E-and-Midjourney-Leonardo-AI-Cert_page-0001-2048x1447.jpg",
-    "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/Communication-Skills-2048x1447.jpg",
-    "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/ASME-Arcade-2048x1448.jpg",
-    "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/Aspire_Certificate-2048x1583.jpg",
-    "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/Arduino-ASME.jpg",
+    "/Images/certificates/Muneeb-Ul-Hassan-1024x723.jpg",
+    "/Images/certificates/Machine-Learning-Specialization_page-0001-1536x1187.jpg",
+    "/Images/certificates/Deep-Learning-Specialization_Muneeb-Ul-Hassan-768x593.jpg",
+    "/Images/certificates/Reinforcement-Learning-Specialization-2048x1583.jpg",
+    "/Images/certificates/Arduino-Workshop-IEEE-UET-1024x1024.png",
+    "/Images/certificates/Encoder-Decoder-scaled.jpg",
+    "/Images/certificates/Custom-Prompts-for-ChatGPT-DALL·E-and-Midjourney-Leonardo-AI-Cert_page-0001-2048x1447.jpg",
+    "/Images/certificates/Communication-Skills-scaled.jpg",
+    "/Images/certificates/ASME-Arcade-scaled.jpg",
+    "/Images/certificates/Aspire_Certificate-scaled.jpg",
+    "/Images/certificates/Arduino-ASME-768x768.jpg",
   ];
 
   // Duplicate images for seamless looping

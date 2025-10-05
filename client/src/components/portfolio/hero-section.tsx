@@ -239,7 +239,7 @@ export default function HeroSection() {
                 {/* Image overlay effects */}
                 <div className="absolute inset-0 bg-grid-pattern opacity-10 z-10"></div>
                 <img
-                  src="https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2024/12/Muneeb-Ul-Hassan-Machine-Learning-Deep-Learning-NLP-Computer-Vision.png"
+                  src="/Images/home/Muneeb-Ul-Hassan-Machine-Learning-Deep-Learning-NLP-Computer-Vision.png"
                   alt="Ameer Hamza - WordPress Developer"
                   className="w-full h-[550px] object-cover z-20 transition-transform duration-700 hover:scale-105"
                 />

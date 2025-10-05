@@ -14,7 +14,7 @@ const projects: Project[] = [
   {
     title: "Fine-tuned DistilBART for Email Summarization",
     category: "NLP",
-    image: "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/image-741x369-2-1.png",
+    image: "/Images/Projets/Fine-tuned%20DistilBART%20for%20Email%20Summarization.png",
     description:
       "Developed an email summarization pipeline using DistilBART and FastAPI, optimized for performance on AWS with Docker, ECR, and EC2, incorporating CI/CD workflows for seamless deployment.",
     technologies: ["DistilBART", "FastAPI", "AWS", "Docker", "ECR", "EC2", "CI/CD"],
@@ -23,7 +23,7 @@ const projects: Project[] = [
   {
     title: "Bird vs Drone Detection",
     category: "Computer Vision",
-    image: "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/image-741x369-2.png",
+    image: "/Images/Projets/Bird%20vs%20Drone%20Detection.png",
     description:
       "Built a computer vision model using VGG16 to detect birds and drones, achieving 96% accuracy. Deployed the solution on a Streamlit app to improve airport and surveillance safety.",
     technologies: ["VGG16", "Streamlit", "Computer Vision", "Deep Learning"],
@@ -32,7 +32,7 @@ const projects: Project[] = [
   {
     title: "Reddit Climate Change Sentiment Analyzer",
     category: "NLP",
-    image: "https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2024/12/image-741x369-1-1.png",
+    image: "/Images/Projets/Reddit%20Climate%20Change%20Sentiment%20Analyzer.png",
     description:
       "Analyzed 10K Reddit comments on climate change using VADER-based NLP models, creating an interactive Streamlit app to visualize sentiment trends for researchers and policymakers.",
     technologies: ["VADER", "NLP", "Streamlit", "Data Analysis"],

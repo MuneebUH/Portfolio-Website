@@ -11,7 +11,7 @@ const services: ServiceProps[] = [
   {
     icon: (
       <img
-        src="https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/05/mlops-scaled.jpeg"
+        src="/Images/services/ai%20research.jpg"
         alt="AI Research"
         className="w-full h-32 object-cover rounded-lg"
       />
@@ -23,7 +23,7 @@ const services: ServiceProps[] = [
   {
     icon: (
       <img
-        src="https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/05/Custom-Machine-Learning-Solutions-scaled.jpeg"
+        src="/Images/services/Custom-Machine-Learning-Solutions%202nd.jpeg"
         alt="Custom Machine Learning Solutions"
         className="w-full h-32 object-cover rounded-lg"
       />
@@ -35,7 +35,7 @@ const services: ServiceProps[] = [
   {
     icon: (
       <img
-        src="https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/05/Data-Processing-Analytics-scaled.jpeg"
+        src="/Images/services/Data-Processing-Analytics%203rd.jpeg"
         alt="Data Processing & Analytics"
         className="w-full h-32 object-cover rounded-lg"
       />
@@ -47,7 +47,7 @@ const services: ServiceProps[] = [
   {
     icon: (
       <img
-        src="https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/01/image-210x100-2.png"
+        src="/Images/services/nlp.png"
         alt="Natural Language Processing (NLP)"
         className="w-full h-32 object-cover rounded-lg"
       />
@@ -59,7 +59,7 @@ const services: ServiceProps[] = [
   {
     icon: (
       <img
-        src="https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/05/ModelDeployment-scaled.jpeg"
+        src="/Images/services/ModelDeployment-scaled.jpeg"
         alt="MLOps & Model Deployment"
         className="w-full h-32 object-cover rounded-lg"
       />
@@ -71,7 +71,7 @@ const services: ServiceProps[] = [
   {
     icon: (
       <img
-        src="https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/05/AIConsulting-scaled.jpeg"
+        src="/Images/services/AIConsulting%206rd.jpeg"
         alt="AI Consulting"
         className="w-full h-32 object-cover rounded-lg"
       />

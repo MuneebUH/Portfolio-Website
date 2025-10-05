@@ -14,7 +14,7 @@ export default function ProcessSection() {
     {
       icon: (
         <img
-          src="https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/07/Microsoft.VisualStudio.Services.Icons-removebg-preview.png"
+          src="/Images/extensions/Color%20Folders%20.png"
           alt="Color Folders Logo"
           className="h-10 w-10 rounded"
         />
@@ -26,7 +26,7 @@ export default function ProcessSection() {
     {
       icon: (
         <img
-          src="https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/07/ty.png"
+          src="/Images/extensions/Select2Copy%20.png"
           alt="Select2Copy Logo"
           className="h-10 w-10 rounded"
         />
@@ -38,7 +38,7 @@ export default function ProcessSection() {
     {
       icon: (
         <img
-          src="https://dev-muneebulhassan.pantheonsite.io/wp-content/uploads/2025/07/Tabs.png"
+          src="/Images/extensions/Tabs.png"
           alt="SnoozeTab Logo"
           className="h-10 w-10 rounded"
         />
